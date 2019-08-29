@@ -1,0 +1,52 @@
+﻿.child1{
+       margin-top:20px;
+     
+   }
+   .child2{
+       margin-top:10px;
+      
+       width:500px;
+      
+   }
+   p{
+       margin-top:40px;
+   }
+    h2, h4, h3{
+       text-align:center;
+      
+   }
+@media screen and (max-width:700px ) {
+
+    .flex-container {
+        display:flex;
+        flex-direction: column;
+        height:auto;
+        width:auto;
+        text-align:center; 
+         
+    }
+   .I{
+       order:-1; 
+
+                
+   }
+}
+@media screen and (min-width:701px){
+    .flex-container{
+        display:flex;
+        flex-direction:row;
+        font-size:1.4em;
+        
+    }
+
+    .I {
+        order: 1;
+      margin-left:100px;
+        display:flex;
+                 
+
+    }
+   
+
+}
+
