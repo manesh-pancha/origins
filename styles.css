@@ -1,0 +1,39 @@
+﻿body {
+        background-image: url('dojo1.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+.body-content {
+
+    /*opacity:0.7;*/
+}
+label{
+    color:white;
+}
+h4 {
+    color: white;
+}
+h2, h3{
+        color:white;
+    opacity:1 !important;
+    text-align:center;
+    padding-left:100px;
+}
+input[type="file"] {
+    color:white;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+  p.title{
+      color:white;
+      margin:20px;
+  }
+
+  .text-danger{
+      color:white;
+      font-size:18px;
+  }

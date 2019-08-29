@@ -1,0 +1,21 @@
+﻿body {
+    background-image: url('Webp.net-resizeimage (1).jpg');
+}
+   .child2{
+     
+       color:white;
+   }
+  h2, h4{
+       text-align:center;
+       color:white;
+   }
+  label{
+    color:white;
+}
+  input[type="file"] {
+    color:white;
+}
+  p.title{
+      color:white;
+      margin:20px;
+  }
