@@ -1,0 +1,37 @@
+﻿@model project4.Models.Origin
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<link href="~/Content/detailsO.css" rel="stylesheet" />
+<link href="~/Content/Origins css.css" rel="stylesheet" />
+
+
+<h4>Origin</h4>
+<hr />
+<div class="flex-container">
+
+    <div class="child1">
+        <div class="child2">
+            @Html.DisplayNameFor(model => model.about)
+            @Html.DisplayFor(m => m.about)
+        </div>
+
+        <div class="child2">
+            @Html.DisplayNameFor(model => model.country)
+            @Html.DisplayFor(model => model.country)
+        </div>
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.OID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+    <div class="I">
+        @*@Html.DisplayNameFor(m => m.image)*@
+        <img src="@Html.DisplayFor(m => m.image)" height="200" width="200" />
+       
+    </div>
+</div> 

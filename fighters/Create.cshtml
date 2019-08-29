@@ -1,0 +1,109 @@
+﻿@model project4.Models.fighters
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<link href="~/Content/fighter.css" rel="stylesheet" />
+
+@using (Html.BeginForm("Create", "fighters", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+        <h3>fighters</h3>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
+        @*@Html.Hidden("StylesID")*@
+        <div class="form-group">
+            @*@Html.LabelFor(model=>model.StylesID, "StyleID", htmlAttributes: new {@class="control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.DropDownList("StylesID", null, htmlAttributes: new {@Hidden ="hidden"}  )
+                @Html.ValidationMessageFor(model => model.StylesID, "", new {@class="text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.about, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.about, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.about, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+  
+        <div class="form-group">
+            @Html.LabelFor(model => model.image, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+             
+                <input type="file" name="ImageFile" required>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.video, htmlAttributes: new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.video, new { htmlAttributes = new { @class = "form-control" , placeholder = "79aYSOcmpV8"} })
+                @Html.ValidationMessageFor(model => model.video, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.records, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.records, new { htmlAttributes = new { @class = "form-control", placeholder = "00-00-0" } })
+                @Html.ValidationMessageFor(model => model.records, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.style, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.style, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.style, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.weightclass, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.weightclass, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.weightclass, "", new { @class = "text-danger" })*@
+                @Html.DropDownList("weightclass", new List<SelectListItem>
+           {
+               new SelectListItem {Text = "Strawweight", Value ="1" },
+                new SelectListItem {Text = "Flyweight", Value ="2" },
+                 new SelectListItem {Text = "Bantamweight", Value ="3" },
+                  new SelectListItem {Text = "Featherweight", Value ="4" },
+                   new SelectListItem {Text = "Lightweight", Value ="5" },
+                    new SelectListItem {Text = "Welterweight", Value ="6" },
+                     new SelectListItem {Text = "Middleweight", Value ="7" },
+                      new SelectListItem {Text = "Light heavyweight", Value ="8" },
+                       new SelectListItem {Text = "Heavyweight", Value ="9" },
+           }, "Select weightclass")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.recent, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.recent, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.recent, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

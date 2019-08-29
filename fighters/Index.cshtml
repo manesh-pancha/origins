@@ -1,0 +1,104 @@
+﻿@model IEnumerable<project4.Models.fighters>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="fighter">
+<h2>Fighters</h2>
+<link href="~/Content/fighter.css" rel="stylesheet" />
+<p>
+    <a class="btn btn-default" href="/fighters/Create">ADD new fighter</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.about)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.records)
+
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.style)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.weightclass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.recent)
+        </th>
+
+
+    </tr>
+
+    @foreach (var item in Model)
+
+    {
+                <tr>
+
+                    <td><img src="@Html.DisplayFor(m => item.image)" height="100" width="100" /></td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.about)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.records)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.style)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.weightclass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.recent)
+                    </td>
+                    <td>
+                        <label id="@item.fighterID">@item.likes</label> Likes<br />
+                        <button class="likeBtn btn-info btn-sm" type="button" data-id="@item.fighterID">Like</button>
+                    </td>
+                    
+
+                    <td>
+                      
+                            @Html.ActionLink("Edit", "Edit", new { id = item.fighterID }, new { @class = "btn btn-warning" })
+                            @Html.ActionLink("Details", "Details", new { id = item.fighterID }, new { @class = "btn btn-info" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.fighterID }, new { @class = "btn btn-danger" })
+</td>
+
+                </tr>
+    }
+
+
+
+</table>
+
+</div>
+<script>
+    $('.likeBtn').click(function () {
+        var id = $(this).attr("data-id")
+        $.ajax({
+            type: 'GET',
+            url: '/Fighters/Like',
+            data: {
+                id: id
+            }
+        })
+            .done(function (response) {
+                $(`#${id}`).html("");
+                $(`#${id}`).html(response);
+
+            })
+
+
+    })
+
+</script>
+
+

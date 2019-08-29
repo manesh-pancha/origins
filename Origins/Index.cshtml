@@ -1,0 +1,41 @@
+﻿ @model IEnumerable<project4.Models.Origin>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    int count = 0;
+}
+
+<h2>Origin</h2>
+
+<p>
+    <a class="btn btn-default" href="/Origins/Create">ADD Origin</a>
+</p>
+<link href="~/Content/flexbox box Origins.css" rel="stylesheet" />
+<link href="~/Content/Origins css.css" rel="stylesheet" />
+
+
+<div class="flexContainer">
+
+    @foreach (var item in Model)
+    {
+        if (count % 4 == 0)
+        {
+            <br />
+            <br />
+        }
+        <div class="dbItem">
+            <a href="@Url.Action("Details", new {id= item.OID })">
+                <img class="img-responsive" src="@Url.Content(item.image)" height="800" width="500" />
+
+            </a>
+            <h4>@Html.DisplayFor(m => item.country)</h4>
+        </div>
+        count++;
+
+    }
+
+
+</div>
+

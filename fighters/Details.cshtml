@@ -1,0 +1,53 @@
+﻿@model project4.Models.fighters
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<link href="~/Content/detailsF.css" rel="stylesheet" />
+<link href="~/Content/fighter.css" rel="stylesheet" />
+    <h3>fighters</h3>
+    <hr />
+    
+<div class="flex-container">
+    <div class="child1">
+        <div class="child2">
+            @Html.DisplayNameFor(model => model.about)
+            @Html.DisplayFor(model => model.about)
+        </div>
+       
+        <div class="child2">
+            @Html.DisplayNameFor(model => model.style)
+            @Html.DisplayFor(model => model.style)
+        </div>
+        <div class="child2">
+            @Html.DisplayNameFor(model => model.weightclass)
+            @Html.DisplayFor(model => model.weightclass)
+        </div>
+        <div class="child2">
+            @Html.DisplayNameFor(model => model.recent)
+            @Html.DisplayFor(model => model.recent)
+        </div>
+        <div class="child2">
+            <br />
+            @Html.ActionLink("Details", "Details", "styles", new { id = Model.StylesID }, null)
+        </div>
+        @*<div class="child2">
+                @Html.DisplayNameFor(model => model.video)
+            </div>*@
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.fighterID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+
+    <div class="I">
+        @*<img src="@Html.DisplayFor(m => m.image)" height="200" width="200" />*@
+        <iframe src="https://www.youtube.com/embed/@Html.DisplayFor(m=>m.video)" height="400" width="540"> </iframe>
+    </div>
+
+</div>
+
+

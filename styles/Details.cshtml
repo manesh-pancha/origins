@@ -1,0 +1,45 @@
+﻿@model project4.Models.styles
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<link href="~/Content/detailsO - Copy.css" rel="stylesheet" />
+<link href="~/Content/styles.css" rel="stylesheet" />
+
+<h3>Styles</h3>
+<hr />
+<div class="flex-container">
+    <div class="child1">
+        <div class="child2">
+            @Html.DisplayNameFor(model => model.about)
+        </div>
+        <div class="child2">
+            @Html.DisplayFor(model => model.about)
+        </div>
+        <div class="child2">
+            @Html.DisplayNameFor(model => model.style)
+        </div>
+        <div class="child2">
+            @Html.DisplayFor(model => model.style)
+            <br />
+            @Html.ActionLink("Details", "Details", "Origins", new {id =Model.OID}, null)
+        </div>
+
+
+        @*<div class="child2">
+                @Html.DisplayNameFor(model => model.video)
+            </div>*@
+        <p class="buttonstyles">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.StylesID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+
+    <div class="I">
+        @*<img src="@Html.DisplayFor(m => m.image)" height="200" width="200" />*@
+        <iframe src="https://www.youtube.com/embed/@Html.DisplayFor(m=>m.video)" height="400" width="552"> </iframe>
+    </div>
+
+</div>
